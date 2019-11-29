@@ -1,9 +1,14 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     font-family: 'Lora', serif;
     box-sizing: border-box;
+    height: 100%;
+  }
+
+  #__next {
+    height: 100%;
   }
 
   body {
@@ -19,6 +24,6 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Exo', sans-serif;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
