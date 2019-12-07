@@ -3,21 +3,17 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Reset } from 'styled-reset'
 
-import GlobalStyle from '../styles/Global'
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+import GlobalStyle, { theme, typography } from '../styles/Global'
+import { GlobalTypeStyles } from 'styled-typography'
 
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{ ...theme, typography }}>
         <Reset />
         <GlobalStyle />
+        <GlobalTypeStyles />
         <Component {...pageProps} />
       </ThemeProvider>
     )

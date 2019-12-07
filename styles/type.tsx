@@ -1,10 +1,13 @@
 export default {
   googleFonts: [
     {
-      name: "Open Sans"
+      name: 'Open Sans',
     },
     {
-      name: "Luxo"
-    }
-  ]
-};
+      name: 'Luxo',
+    },
+    {
+      name: 'Source Sans Pro',
+    },
+  ],
+}

@@ -10,11 +10,12 @@ const Container = styled.div`
 `
 const Wrapper = styled(_Wrapper)`
   padding: 40px 0;
+  font-family: 'Source Sans Pro', sans-serif;
 `
 
 const Footer: React.FC = () => (
   <Container>
-    <Wrapper>&copy; 2019 Rohan Nair</Wrapper>
+    <Wrapper>&copy; 2019 Rohan Nair.</Wrapper>
   </Container>
 )
 
