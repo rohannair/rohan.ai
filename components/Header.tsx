@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import _Link from 'next/link'
+import Link from 'next/link'
 import Logo from './Logo'
 import _Wrapper from './Wrapper'
 
@@ -18,10 +18,6 @@ const Nav = styled.nav`
   grid-template-columns: repeat(3, auto);
   grid-gap: 20px;
   margin-left: auto;
-`
-
-const Link = styled(_Link)`
-  text-decoration: none;
 `
 
 const Header: React.FC = () => (
