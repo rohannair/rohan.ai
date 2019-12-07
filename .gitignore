@@ -3,3 +3,6 @@ build
 .next
 *error*
 out
+
+# Local Netlify folder
+.netlify
