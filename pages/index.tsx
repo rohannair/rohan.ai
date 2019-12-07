@@ -12,7 +12,9 @@ export default () => (
       </Heading>
       <Text>
         I'm a Technology leader, polyglot software developer, entrepreneur,
-        sometimes speaker, and full time Toronto sports fan.
+        sometimes speaker, and full time Toronto sports fan. My career has
+        afforded me opportunities leading technology teams in high growth
+        startups, venture capital, and as a founder.
       </Text>
     </Wrapper>
   </Layout>
