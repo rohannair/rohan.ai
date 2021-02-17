@@ -50,7 +50,7 @@ const Colophon = styled.div`
 const Footer: React.FC = () => (
   <Container>
     <Wrapper>
-      <Colophon>&copy; 2019 Rohan Nair.</Colophon>
+      <Colophon>&copy; {new Date().getFullYear()} Rohan Nair.</Colophon>
       <SocialContainer>
         <SocialIcon href="//linkedin.com/in/rohannair10">
           <FontAwesomeIcon icon={faLinkedin} />
