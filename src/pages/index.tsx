@@ -61,7 +61,7 @@ const Home: NextPage = () => {
             </a>{" "}
             (acq. 2019), Finaeo,{" "}
             <a
-              href="https://www.ebayinc.com/stories/news/ebay-signs-agreement-to-acquire-terapeak/"
+              href="https://betakit.com/ebay-acquiring-terapeak-to-boost-its-data-analytics-offering-for-sellers/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             </a>{" "}
             (acq. 2017), and{" "}
             <a
-              href="https://www.newswire.ca/news-releases/mckesson-canada-announces-the-acquisition-of-wellca-661835533.html"
+              href="https://betakit.com/well-ca-acquired-by-mckesson-canada/"
               target="_blank"
               rel="noopener noreferrer"
             >
