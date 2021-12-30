@@ -8,6 +8,20 @@ const Home: NextPage = () => {
         <title>Rohan Nair</title>
         <meta name="description" content="I don't care about SEO" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Home" />
+        <meta property="og:description" content="Rohan Nair" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rohan.ai/" />
+        <meta property="og:image" content="https://rohan.ai/avatar400.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohan10" />
+        <meta name="twitter:title" content="Rohan Nair" />
+        <meta
+          name="twitter:description"
+          content="I’m an entrepreneur, and polyglot software developer currently building new ventures, and investing through Chai Ventures."
+        />
+        <meta name="twitter:image" content="https://rohan.ai/avatar400.png" />
+        He
       </Head>
       <div className="w-full">
         <div className="prose lg:prose-xl m-auto mt-20 prose-invert">
