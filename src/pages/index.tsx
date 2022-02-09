@@ -27,8 +27,11 @@ const Home: NextPage = () => {
         <div className="prose lg:prose-xl m-auto mt-20 prose-invert">
           <h2>Hi, I&rsquo;m Rohan</h2>
           <p>
-            I&rsquo;m an entrepreneur, and polyglot software developer currently
-            building new ventures, and investing through{" "}
+            I&rsquo;m an entrepreneur, currently building{" "}
+            <a href="//jointcare.io" target="_blank" rel="noopener noreferrer">
+              Jointcare
+            </a>
+            , and investing through{" "}
             <a
               href="//chaiventures.io"
               target="_blank"
