@@ -26,7 +26,7 @@ export const links: LinksFunction = () => {
       crossOrigin: 'anonymous',
     },
     {
-      href: 'https://fonts.googleapis.com/css2?family:Roboto+Flex:opsz,wght@8..144,800&display:swap',
+      href: 'https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@800&display=swap',
       rel: 'stylesheet',
     },
   ]
