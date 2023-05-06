@@ -9,11 +9,19 @@ export default function Index() {
     <>
       <h1>Hi, I&rsquo;m Rohan</h1>
       <p>
-        I&rsquo;m an entrepreneur, currently building{' '}
+        I&rsquo;m currently the Head of Engineering at{' '}
+        <a
+          href="//nauticalcommerce.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Nautical Commerce
+        </a>
+        , building{' '}
         <a href="//jointcare.io" target="_blank" rel="noopener noreferrer">
           Jointcare
         </a>
-        , and consulting through{' '}
+        on the side, and sometimes consulting through{' '}
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
         </a>
@@ -94,7 +102,8 @@ export default function Index() {
         </li>
         <li>
           <strong className="text-orange-400">Gaming</strong>; I primarily play
-          Factorio, but can have my arm twisted for a game or two of Warzone.
+          Call of Duty or open-world RPGs like anything Zelda, Cyberpunk 2077,
+          or Witcher 3.
         </li>
       </ul>
     </>
