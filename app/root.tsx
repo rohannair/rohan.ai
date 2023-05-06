@@ -13,6 +13,7 @@ import { Footer, Header } from '~/components/global'
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
   title: 'Rohan Nair',
+  description: 'Toronto-based software leader',
   viewport: 'width=device-width,initial-scale=1',
 })
 
@@ -63,6 +64,12 @@ export default function App() {
         </div>
         <Footer />
         <ScrollRestoration />
+
+        <script
+          defer
+          data-domain="rohan.ai"
+          src="https://plausible.io/js/script.js"
+        />
         <Scripts />
         <LiveReload />
       </body>
