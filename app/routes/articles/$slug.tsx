@@ -36,7 +36,7 @@ export default function Post() {
   return (
     <>
       <h1 className="mb-0">{title}</h1>
-      <h3 className="mt-0 pb-0">{description}</h3>
+      <h3 className="pb-0 mt-0">{description}</h3>
       <p className="text-sm font-light tracking-wide">
         Published:{' '}
         <span className="italic">

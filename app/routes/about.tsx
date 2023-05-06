@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div className="w-full">
-      <div className="prose lg:prose-xl m-auto mt-14 prose-invert">
+      <div className="m-auto prose lg:prose-xl mt-14 prose-invert">
         <h2>Hi, I&rsquo;m Rohan</h2>
         <p>
           I&rsquo;m an entrepreneur, currently building{' '}

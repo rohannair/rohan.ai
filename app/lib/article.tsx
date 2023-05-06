@@ -46,5 +46,6 @@ export async function getArticles() {
       }
     }),
   )
+  
   return posts
 }

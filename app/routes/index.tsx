@@ -1,3 +1,9 @@
+export const meta = {
+  title: 'Rohan Nair',
+  description:
+    'Rohan Nair is an entrepreneur, currently building Jointcare, and consulting through Chai Ventures. His core focuses are Healthcare, and Fintech; specifically around building ML-driven applications.',
+}
+
 export default function Index() {
   return (
     <>
@@ -62,7 +68,7 @@ export default function Index() {
         </a>{' '}
         (acq. 2017).
       </p>
-      <h3>Core Interests</h3>
+      <h2>Core Interests</h2>
       <ul>
         <li>
           <strong className="text-blue-500">Healthcare</strong>, specifically

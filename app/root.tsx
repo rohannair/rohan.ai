@@ -42,7 +42,7 @@ export default function App() {
       <body>
         <Header />
         <div className="w-full">
-          <div className="prose lg:prose-xl m-auto mt-14 prose-invert">
+          <div className="m-auto prose lg:prose-xl mt-14 prose-invert">
             <Outlet />
           </div>
         </div>
