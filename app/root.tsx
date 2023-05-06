@@ -19,7 +19,16 @@ export const meta: MetaFunction = () => ({
 export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: '/tailwindcss' },
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+      crossOrigin: 'anonymous',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossOrigin: 'anonymous',
+    },
     {
       rel: 'preconnect',
       href: 'https://fonts.gstatic.com',
@@ -38,6 +47,12 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@800&display=swap"
+          />
+        </noscript>
       </head>
       <body>
         <Header />

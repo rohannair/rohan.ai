@@ -20,7 +20,7 @@ export default function Index() {
         , building{' '}
         <a href="//jointcare.io" target="_blank" rel="noopener noreferrer">
           Jointcare
-        </a>
+        </a>{' '}
         on the side, and sometimes consulting through{' '}
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
