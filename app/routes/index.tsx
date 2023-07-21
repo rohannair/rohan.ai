@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Rohan Nair',
   description:
-    'Rohan Nair is an entrepreneur, currently building Jointcare, and consulting through Chai Ventures. His core focuses are Healthcare, and Fintech; specifically around building ML-driven applications.',
+    'Rohan Nair is a Toronto based entrepreneur, technology leader, and consultant.',
 }
 
 export default function Index() {
@@ -17,28 +17,17 @@ export default function Index() {
         >
           Nautical Commerce
         </a>
-        , building{' '}
-        <a href="//jointcare.io" target="_blank" rel="noopener noreferrer">
-          Jointcare
-        </a>{' '}
-        on the side, and sometimes consulting through{' '}
+        , and sometimes consulting through{' '}
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
         </a>
-        . My core focuses are Healthcare, and Fintech; specifically around
-        building ML-driven applications.
+        . Fintech is my professional speciality; specifically around utilizing
+        cutting edge technologies to build the future of financial services.
       </p>
       <p>
-        Prior to this, I&rsquo;ve spent over 11 years in the{' '}
-        <a
-          href="https://thecorridor.ca/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Toronto-Waterloo
-        </a>{' '}
-        tech. ecosystem in various roles and companies including leading
-        Technology at{' '}
+        Prior to this, I&rsquo;ve spent over {new Date().getFullYear() - 2010}{' '}
+        years in the Toronto technology and startup ecosystem in various roles
+        and companies including leading Technology at{' '}
         <a href="//highlinebeta.com" target="_blank" rel="noopener noreferrer">
           VC fund Highline Beta
         </a>
@@ -58,7 +47,7 @@ export default function Index() {
         >
           Pungle Payments
         </a>{' '}
-        (acq. 2019), Finaeo,{' '}
+        (acq. 2019),{' '}
         <a
           href="https://betakit.com/ebay-acquiring-terapeak-to-boost-its-data-analytics-offering-for-sellers/"
           target="_blank"
@@ -79,14 +68,14 @@ export default function Index() {
       <h2>Core Interests</h2>
       <ul>
         <li>
-          <strong className="text-blue-500">Healthcare</strong>, specifically
-          around using Machine Learning to surmount barriers within health
-          informatics and data modelling.
-        </li>
-        <li>
-          <strong className="text-green-500">Fintech</strong>, specifically
+          <strong className="text-blue-500">Fintech</strong>, specifically
           around how we can build new robust protocols that help all humans
           build wealth, and participate in the growth of our global economy.
+        </li>
+        <li>
+          <strong className="text-green-400">Machine Learning/AI</strong>,
+          specifically around solving human problems with the harnessed power of
+          tons of overpriced GPUs.
         </li>
         <li>
           <strong className="text-yellow-400">Society</strong>, specifically
@@ -102,8 +91,7 @@ export default function Index() {
         </li>
         <li>
           <strong className="text-orange-400">Gaming</strong>; I primarily play
-          Call of Duty or open-world RPGs like anything Zelda, Cyberpunk 2077,
-          or Witcher 3.
+          Zelda Tears of the Kingdom these days.
         </li>
       </ul>
     </>

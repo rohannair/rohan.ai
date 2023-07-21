@@ -16,7 +16,7 @@ in pkgs.mkShell rec {
     bat
     exa
     git
-    nodejs-16_x
+    nodejs-18_x
     yarn
   ];
 
