@@ -37,7 +37,7 @@ export default function Index() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Semantic Health
+          Semantic Health (acq. 2023)
         </a>
         ,{' '}
         <a
