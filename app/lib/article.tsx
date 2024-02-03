@@ -1,6 +1,9 @@
 import parseFrontMatter from 'front-matter'
 import { join, readdir, readFile } from './fs.server'
 import { bundleMDX } from './mdx.server'
+import path from 'node:path'
+
+const __dirname = path.dirname(process.cwd())
 
 export type Post = {
   slug: string
@@ -27,13 +30,13 @@ export async function getArticle(slug: string) {
   return post
 }
 
-export async function getArticles() {
+export async function getArticles(): Promise<Post[]> {
   const postPath = await readdir(`${__dirname}/../content/articles`, {
     withFileTypes: true,
   })
 
   const posts = await Promise.all(
-    postPath.map(async (dirent) => {
+    postPath.map(async (dirent: any) => {
       const file = await readFile(
         join(`${__dirname}/../content/articles`, dirent.name),
         'utf8',
@@ -46,6 +49,6 @@ export async function getArticles() {
       }
     }),
   )
-  
+
   return posts
 }

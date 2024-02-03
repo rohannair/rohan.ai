@@ -1,7 +1,6 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/node'
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -10,41 +9,19 @@ import {
 
 import { Footer, Header } from '~/components/global'
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'Rohan Nair',
-  description: 'Toronto-based software leader',
-  viewport: 'width=device-width,initial-scale=1',
-})
+export const meta: MetaFunction = () => [
+  { charset: 'utf-8' },
+  { title: 'Rohan Nair' },
+  { description: 'Toronto-based software leader' },
+  { viewport: 'width=device-width,initial-scale=1' },
+]
 
-export const links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: '/tailwindcss' },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.googleapis.com',
-      crossOrigin: 'anonymous',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.gstatic.com',
-      crossOrigin: 'anonymous',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.gstatic.com',
-      crossOrigin: 'anonymous',
-    },
-    {
-      href: 'https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@800&display=swap',
-      rel: 'stylesheet',
-    },
-  ]
-}
+import '@unocss/reset/tailwind.css'
+import 'virtual:uno.css'
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full min-h-full">
       <head>
         <Meta />
         <Links />
@@ -55,10 +32,10 @@ export default function App() {
           />
         </noscript>
       </head>
-      <body>
+      <body className="flex h-full min-h-full flex-col overflow-y-scroll bg-gray-900 text-white">
         <Header />
         <div className="w-full">
-          <div className="m-auto prose lg:prose-xl mt-14 prose-invert">
+          <div className="prose lg:prose-xl prose-invert m-auto mt-14">
             <Outlet />
           </div>
         </div>
@@ -71,7 +48,6 @@ export default function App() {
           src="https://plausible.io/js/script.js"
         />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   )

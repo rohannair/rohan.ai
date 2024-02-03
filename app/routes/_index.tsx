@@ -1,15 +1,19 @@
-export const meta = {
-  title: 'Rohan Nair',
-  description:
-    'Rohan Nair is a Toronto based entrepreneur, technology leader, and consultant.',
-}
+export const meta = [
+  {
+    title: 'Rohan Nair',
+  },
+  {
+    description:
+      'Rohan Nair is a Toronto based entrepreneur, technology leader, and consultant.',
+  },
+]
 
 export default function Index() {
   return (
     <>
-      <h1>Hi, I&rsquo;m Rohan</h1>
+      <h1>Hi, I'm Rohan</h1>
       <p>
-        I&rsquo;m currently the VP of Technology at{' '}
+        I'm currently the VP of Technology at{' '}
         <a
           href="//nauticalcommerce.com"
           target="_blank"
@@ -25,9 +29,9 @@ export default function Index() {
         cutting edge technologies to build the future of financial services.
       </p>
       <p>
-        Prior to this, I&rsquo;ve spent over {new Date().getFullYear() - 2010}{' '}
-        years in the Toronto technology and startup ecosystem in various roles
-        and companies including leading Technology at{' '}
+        Prior to this, I've spent over {new Date().getFullYear() - 2010} years
+        in the Toronto technology and startup ecosystem in various roles and
+        companies including leading Technology at{' '}
         <a href="//highlinebeta.com" target="_blank" rel="noopener noreferrer">
           VC fund Highline Beta
         </a>
