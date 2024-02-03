@@ -17,12 +17,14 @@ export async function getArticle(slug: string) {
     'utf8',
   )
 
-  return await bundleMDX({
+  const post = await bundleMDX({
     source,
   }).catch((e) => {
     console.error(e)
     throw e
   })
+
+  return post
 }
 
 export async function getArticles() {
@@ -30,7 +32,7 @@ export async function getArticles() {
     withFileTypes: true,
   })
 
-  return await Promise.all(
+  const posts = await Promise.all(
     postPath.map(async (dirent) => {
       const file = await readFile(
         join(`${__dirname}/../content/articles`, dirent.name),
@@ -44,4 +46,6 @@ export async function getArticles() {
       }
     }),
   )
+  
+  return posts
 }

@@ -1,7 +1,11 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ['**/.*'],
-  mdx: async (_filename) => {
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // serverBuildPath: "build/index.js",
+  // publicPath: "/build/",
+  mdx: async (filename) => {
     const [rehypeHighlight] = Promise.all([
       import('rehype-highlight').then((mod) => mod.default),
     ])

@@ -15,13 +15,12 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   if (!params.slug) {
     throw new Error('No slug provided')
   }
-  if (params.slug === 'rss.xml') {
-    return json({})
-  }
+  if (params.slug === 'rss.xml') return json({})
 
   const article = await getArticle(params.slug)
   if (article) {
-    return article
+    const { frontmatter, code } = article
+    return { frontmatter, code }
   } else {
     throw new Response('Not found', { status: 404 })
   }
