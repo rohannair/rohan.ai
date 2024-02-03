@@ -19,8 +19,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
   const article = await getArticle(params.slug)
   if (article) {
-    const { frontmatter, code } = article
-    return { frontmatter, code }
+    return article
   } else {
     throw new Response('Not found', { status: 404 })
   }

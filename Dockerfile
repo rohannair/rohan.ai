@@ -1,42 +1,55 @@
 # base node image
-ARG BUN_VERSION=1.0.25
-FROM oven/bun:${BUN_VERSION} as base
+FROM node:20 as base
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install Yarn at the beginning to ensure it's available
+# RUN npm install -g yarn
 
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
-RUN mkdir /app
-WORKDIR /app
+# Copy package.json, yarn.lock, and tsconfig.json to the working directory
+COPY package.json yarn.lock tsconfig.json ./
 
-ADD package.json bun.lockb tsconfig.json ./
-RUN bun install
+# Install dependencies using Yarn
+RUN yarn install
 
 # Build the app
 FROM base as build
 
+# Set the environment variable for production
 ENV NODE_ENV=production
 
-RUN mkdir /app
-WORKDIR /app
+# Copy installed dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
 
-COPY --from=deps /app/node_modules /app/node_modules
+# Copy the rest of the application code
+COPY . .
 
-ADD . .
-RUN bun run build
+# Build the application using Yarn
+RUN yarn build
 
 # Finally, build the production image with minimal footprint
 FROM base
 
+# Set the environment variable for production
 ENV NODE_ENV=production
 
-RUN mkdir /app
+# Set the working directory in the container
 WORKDIR /app
 
-COPY --from=deps /app/node_modules /app/node_modules
+# Copy runtime dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
 
-COPY --from=build /app/build /app/build
-COPY --from=build /app/public /app/public
-ADD . .
+# Copy the built application from the build stage
+COPY --from=build /app/build ./build
+COPY --from=build /app/public ./public
+COPY --from=build /app/package.json ./package.json
 
+# Assuming your server is set to listen on port 3000
 EXPOSE 3000
-CMD ["bun", "run", "start"]
+
+# Command to run the application
+CMD ["yarn", "run", "start"]

@@ -11,8 +11,8 @@ export const meta = [
 export default function Index() {
   return (
     <>
-      <h1 className="prosetext-base prose antialiased">Hi, I'm Rohan</h1>
-      <p className="prosetext-base prose text-lg leading-8">
+      <h1 className="prose text-4xl antialiased">Hi, I'm Rohan</h1>
+      <p className="prose text-lg leading-8">
         I'm currently the VP of Technology at{' '}
         <a
           href="//nauticalcommerce.com"
@@ -25,10 +25,12 @@ export default function Index() {
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
         </a>
-        , and sometimes angel investing. Commerce and Fintech are my professional specialities; specifically around utilizing
-        cutting edge technologies to build the future of marketplaces, and financial services.
+        , and sometimes angel investing. Commerce and Fintech are my
+        professional specialities; specifically around utilizing cutting edge
+        technologies to build the future of marketplaces, and financial
+        services.
       </p>
-      <p className="prosetext-base prose text-lg leading-8">
+      <p className="prose text-lg leading-8">
         Prior to this, I've spent over {new Date().getFullYear() - 2010} years
         in the Toronto technology and startup ecosystem in various roles and
         companies including leading Technology at{' '}
@@ -42,7 +44,7 @@ export default function Index() {
           rel="noopener noreferrer"
         >
           Semantic Health
-        </a>{ ' '}
+        </a>{' '}
         (acq. 2023),{' '}
         <a
           href="https://betakit.com/toronto-fintech-startup-pungle-acquired-by-berkeley-payment-solutions/"
@@ -69,19 +71,19 @@ export default function Index() {
         </a>{' '}
         (acq. 2017).
       </p>
-      <h2 className="prosetext-base prose antialiased">Core Interests</h2>
+      <h2 className="prose antialiased">Core Interests</h2>
       <ul>
-        <li className="prosetext-base prose text-lg leading-8 mb-4">
+        <li className="prose text-lg leading-8 mb-4">
           <strong className="text-blue-500">Fintech</strong>, specifically
           around how we can build new robust protocols that help all humans
           build wealth, and participate in the growth of our global economy.
         </li>
-        <li className="prosetext-base prose text-lg leading-8 mb-4">
+        <li className="prose text-lg leading-8 mb-4">
           <strong className="text-green-400">Machine Learning/AI</strong>,
           specifically around solving human problems with the harnessed power of
           tons of overpriced GPUs.
         </li>
-        <li className="prosetext-base prose text-lg leading-8 mb-4">
+        <li className="prose text-lg leading-8 mb-4">
           <strong className="text-yellow-400">Society</strong>, specifically
           around solving real human problems like climate change, becoming a
           multi-planetary species, and educating our massively growing
@@ -93,7 +95,6 @@ export default function Index() {
           Barcelona. I am 100% not a Leafs fan, and am embarrassed for my
           friends who were born into Leafs fandom.
         </li>
-
       </ul>
     </>
   )

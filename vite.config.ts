@@ -10,7 +10,7 @@ installGlobals()
 export default defineConfig({
   server: { port: 3000 },
   plugins: [
-    million.vite({ auto: true }),
+    // million.vite({ auto: true }),
     remix({ ignoredRouteFiles: ['**/.*'] }),
     UnoCSS(),
     tsconfigPaths(),

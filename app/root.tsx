@@ -9,12 +9,7 @@ import {
 
 import { Footer, Header } from '~/components/global'
 
-export const meta: MetaFunction = () => [
-  { charset: 'utf-8' },
-  { title: 'Rohan Nair' },
-  { description: 'Toronto-based software leader' },
-  { viewport: 'width=device-width,initial-scale=1' },
-]
+export const meta: MetaFunction = () => [{ title: 'Rohan Nair' }]
 
 import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
@@ -23,6 +18,9 @@ export default function App() {
   return (
     <html lang="en" className="h-full min-h-full">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Toronto-based software leader" />
         <Meta />
         <Links />
         <noscript>
