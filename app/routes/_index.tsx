@@ -11,8 +11,8 @@ export const meta = [
 export default function Index() {
   return (
     <>
-      <h1>Hi, I'm Rohan</h1>
-      <p>
+      <h1 className="prosetext-base prose antialiased">Hi, I'm Rohan</h1>
+      <p className="prosetext-base prose text-lg leading-8">
         I'm currently the VP of Technology at{' '}
         <a
           href="//nauticalcommerce.com"
@@ -21,14 +21,14 @@ export default function Index() {
         >
           Nautical Commerce
         </a>
-        , and sometimes consulting through{' '}
+        , sometimes consulting through{' '}
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
         </a>
-        . Fintech is my professional speciality; specifically around utilizing
-        cutting edge technologies to build the future of financial services.
+        , and sometimes angel investing. Commerce and Fintech are my professional specialities; specifically around utilizing
+        cutting edge technologies to build the future of marketplaces, and financial services.
       </p>
-      <p>
+      <p className="prosetext-base prose text-lg leading-8">
         Prior to this, I've spent over {new Date().getFullYear() - 2010} years
         in the Toronto technology and startup ecosystem in various roles and
         companies including leading Technology at{' '}
@@ -41,9 +41,9 @@ export default function Index() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Semantic Health (acq. 2023)
-        </a>
-        ,{' '}
+          Semantic Health
+        </a>{ ' '}
+        (acq. 2023),{' '}
         <a
           href="https://betakit.com/toronto-fintech-startup-pungle-acquired-by-berkeley-payment-solutions/"
           target="_blank"
@@ -69,34 +69,31 @@ export default function Index() {
         </a>{' '}
         (acq. 2017).
       </p>
-      <h2>Core Interests</h2>
+      <h2 className="prosetext-base prose antialiased">Core Interests</h2>
       <ul>
-        <li>
+        <li className="prosetext-base prose text-lg leading-8 mb-4">
           <strong className="text-blue-500">Fintech</strong>, specifically
           around how we can build new robust protocols that help all humans
           build wealth, and participate in the growth of our global economy.
         </li>
-        <li>
+        <li className="prosetext-base prose text-lg leading-8 mb-4">
           <strong className="text-green-400">Machine Learning/AI</strong>,
           specifically around solving human problems with the harnessed power of
           tons of overpriced GPUs.
         </li>
-        <li>
+        <li className="prosetext-base prose text-lg leading-8 mb-4">
           <strong className="text-yellow-400">Society</strong>, specifically
           around solving real human problems like climate change, becoming a
           multi-planetary species, and educating our massively growing
           populations.
         </li>
-        <li>
+        <li className="prosetext-base prose text-lg leading-8 mb-4">
           <strong className="text-red-500">Sports</strong>; I am a fan of the
           Toronto Raptors, Toronto Blue Jays, New England Patriots, FC
           Barcelona. I am 100% not a Leafs fan, and am embarrassed for my
           friends who were born into Leafs fandom.
         </li>
-        <li>
-          <strong className="text-orange-400">Gaming</strong>; I primarily play
-          Zelda Tears of the Kingdom these days.
-        </li>
+
       </ul>
     </>
   )

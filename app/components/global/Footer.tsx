@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <div className="w-full mt-auto">
       <div className="py-6 text-sm font-semibold tracking-wider text-center text-gray-700">
-        &copy; {colophon()} Rohan Nair
+        © {colophon()} Rohan Nair
       </div>
     </div>
   )

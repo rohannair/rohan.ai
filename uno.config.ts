@@ -7,11 +7,11 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export default defineConfig({
   theme: {
     fontFamily: {
-      headings: ['Roboto Flex', 'Inter var', ...defaultTheme.fontFamily.sans],
+      headings: ['Roboto Flex', 'Inter', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
