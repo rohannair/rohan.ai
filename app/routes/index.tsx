@@ -9,7 +9,7 @@ export default function Index() {
     <>
       <h1>Hi, I&rsquo;m Rohan</h1>
       <p>
-        I&rsquo;m currently the Head of Engineering at{' '}
+        I&rsquo;m currently the VP of Technology at{' '}
         <a
           href="//nauticalcommerce.com"
           target="_blank"
