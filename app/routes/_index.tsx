@@ -13,22 +13,13 @@ export default function Index() {
     <>
       <h1 className="prose text-4xl antialiased">Hi, I'm Rohan</h1>
       <p className="prose text-lg leading-8">
-        I'm currently the VP of Technology at{' '}
-        <a
-          href="//nauticalcommerce.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Nautical Commerce
-        </a>
-        , sometimes consulting through{' '}
+        I'm currently consulting through{' '}
         <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
           Chai Ventures
         </a>
         , and sometimes angel investing. Commerce and Fintech are my
         professional specialities; specifically around utilizing cutting edge
-        technologies to build the future of marketplaces, and financial
-        services.
+        technologies to build the future of commerce, and financial services.
       </p>
       <p className="prose text-lg leading-8">
         Prior to this, I've spent over {new Date().getFullYear() - 2010} years
@@ -38,6 +29,14 @@ export default function Index() {
           VC fund Highline Beta
         </a>
         ; founding multiple startups; and having been on the early teams of{' '}
+        <a
+          href="//nauticalcommerce.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Nautical Commerce
+        </a>
+        {', '}
         <a
           href="https://betakit.com/semantic-health-comes-out-of-stealth-to-help-hospitals-use-coded-data/"
           target="_blank"
