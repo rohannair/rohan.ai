@@ -7,7 +7,7 @@
 </script>
 
 <main
-  class="w-full grid grid-rows-layout bg-gradient-to-br from-gray-800 to-gray-900 text-white"
+  class="w-full min-h-full grid grid-rows-layout bg-gradient-to-br from-gray-800 to-gray-900 text-white"
 >
   <div />
   <div class="flex flex-col p-4 med:py-4 med:px-6 items-center">

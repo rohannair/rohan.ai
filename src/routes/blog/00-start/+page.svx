@@ -1,0 +1,4 @@
+<section class="prose">
+  <h1>Hello and welcome to the blog</h1>
+  <p>I of course will forget to keep this up to date</p>
+</section>
