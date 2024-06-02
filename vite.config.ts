@@ -1,18 +1,39 @@
-import { unstable_vitePlugin as remix } from '@remix-run/dev'
+import {
+  presetTypography,
+  presetUno,
+  presetIcons,
+  presetWebFonts,
+} from 'unocss'
 import UnoCSS from 'unocss/vite'
-import million from 'million/compiler'
+import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import { installGlobals } from '@remix-run/node'
-
-installGlobals()
+import extractorSvelte from '@unocss/extractor-svelte'
+import TailwindCSS from 'tailwindcss'
+// @ts-expect-error ts(7016)
+import LightningCSS from 'postcss-lightningcss'
 
 export default defineConfig({
-  server: { port: 3000 },
+  css: {
+    postcss: {
+      plugins: [TailwindCSS(), LightningCSS()],
+    },
+  },
   plugins: [
-    // million.vite({ auto: true }),
-    remix({ ignoredRouteFiles: ['**/.*'] }),
-    UnoCSS(),
-    tsconfigPaths(),
+    UnoCSS({
+      content: { pipeline: { include: [/\.svelte$/, /\.md?$/, /\.ts$/] } },
+      extractors: [extractorSvelte()],
+      presets: [
+        presetUno(),
+        presetIcons(),
+        presetTypography(),
+        presetWebFonts({
+          provider: 'google',
+          fonts: {
+            sans: ['Inter:100,400,500,600,700'],
+          },
+        }),
+      ],
+    }),
+    sveltekit(),
   ],
 })

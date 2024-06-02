@@ -1,41 +1,38 @@
-# Welcome to Remix!
+# create-svelte
 
-- [Remix Docs](https://remix.run/docs)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Fly Setup
+## Creating a project
 
-1. [Install `flyctl`](https://fly.io/docs/getting-started/installing-flyctl/)
+If you're seeing this, you've probably already done this step. Congrats!
 
-2. Sign up and log in to Fly
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-```sh
-flyctl auth signup
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
-3. Setup Fly. It might ask if you want to deploy, say no since you haven't built the app yet.
+## Developing
 
-```sh
-flyctl launch
-```
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-## Development
-
-From your terminal:
-
-```sh
+```bash
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+## Building
 
-## Deployment
+To create a production version of your app:
 
-If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-npm run deploy
+```bash
+npm run build
 ```
 
-You can run `flyctl info` to get the url and ip address of your server.
+You can preview the production build with `npm run preview`.
 
-Check out the [fly docs](https://fly.io/docs/getting-started/node/) for more information.
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
