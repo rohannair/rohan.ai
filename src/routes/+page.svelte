@@ -7,31 +7,26 @@
 </svelte:head>
 
 <h1 class="prose text-4xl antialiased">Hi, I'm Rohan</h1>
-<p class="prose text-2xl leading-8">
-  I'm a Toronto based entrepreneur, fractional CTO, technology leader, and
-  consultant.
-</p>
 <p class="prose text-lg leading-8">
-  I'm currently consulting through{" "}
+  I'm currently doing consulting/fractional CTO work, and (sparingly) angel
+  investing through{" "}
   <a href="//chaiventures.io" target="_blank" rel="noopener noreferrer">
     Chai Ventures
   </a>
-  , and sometimes angel investing. Commerce and Fintech are my professional specialities;
-  specifically around utilizing cutting edge technologies to build the future of
-  commerce, and financial services.
+  .
 </p>
+
 <p class="prose text-lg leading-8">
-  Prior to this, I've spent over {new Date().getFullYear() - 2010} years in the Toronto
-  technology and startup ecosystem in various roles and companies including leading
-  Technology at{" "}
-  <a href="//highlinebeta.com" target="_blank" rel="noopener noreferrer">
-    VC fund Highline Beta
-  </a>
-  ; founding multiple startups; and having been on the early teams of{" "}
+  I've spent over {new Date().getFullYear() - 2010} years in the Toronto technology
+  and startup ecosystem. I've been VP Technology at{" "}
   <a href="//nauticalcommerce.com" target="_blank" rel="noopener noreferrer">
     Nautical Commerce
   </a>
-  {", "}
+  , first engineer and Head of Technology at{" "}
+  <a href="//highlinebeta.com" target="_blank" rel="noopener noreferrer">
+    VC fund Highline Beta
+  </a>
+  , founding multiple startups; and having been on the early teams of{" "}
   <a
     href="https://betakit.com/semantic-health-comes-out-of-stealth-to-help-hospitals-use-coded-data/"
     target="_blank"
@@ -65,8 +60,25 @@
   </a>{" "}
   (acq. 2017).
 </p>
-<h2 class="prose antialiased">Core Interests</h2>
-<ul>
+
+<h2>Work with me</h2>
+<p class="prose">
+  I'm currently open to fractional CTO, and venture consulting roles. To work
+  with me, feel free to shoot me{" "}
+  <a href="mailto:rn@chaiventures.io?subject=Working%20Together"> an email </a>
+  , or a{" "}
+  <a
+    href="https://www.linkedin.com/in/rohannair10/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    LinkedIn request
+  </a>
+  .
+</p>
+
+<h2>Core Interests</h2>
+<ul class="prose">
   <li class="prose text-lg leading-8 mb-4">
     <strong class="text-blue-500">Fintech</strong>, specifically around how we
     can build new robust protocols that help all humans build wealth, and
@@ -84,8 +96,8 @@
   </li>
   <li class="prosetext-base prose text-lg leading-8 mb-4">
     <strong class="text-red-500">Sports</strong>; I am a fan of the Toronto
-    Raptors, Toronto Blue Jays, New England Patriots, FC Barcelona. I am not a
-    Leafs fan, and am embarrassed for my friends who were born into Leafs
+    Raptors, Toronto Blue Jays, New England Patriots, FC Barcelona. I am 100%
+    not a Leafs fan, and am embarrassed for my friends who were born into Leafs
     fandom.
   </li>
 </ul>
