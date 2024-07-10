@@ -9,3 +9,28 @@ html {
 body {
   @apply flex h-full min-h-full flex-col overflow-y-scroll bg-gray-900 text-white;
 }
+
+.prose article h1 {
+  @apply my-0;
+}
+
+.prose article :is(h2, h3, h4) {
+  @apply block text-white mb-4 mt-8;
+}
+
+.prose article :is(p, li) {
+  @apply text-gray-300 leading-8;
+}
+
+.prose article h1 + p {
+  @apply text-gray-400 mt--4;
+}
+
+.prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)) {
+  @apply bg-gray-800 rounded font-mono font-light p-1 whitespace-normal;
+}
+
+.prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)):before,
+.prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)):after {
+  content: "";
+}

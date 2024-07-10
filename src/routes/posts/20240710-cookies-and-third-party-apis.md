@@ -13,12 +13,13 @@ tags:
 I recently found myself in a position having to re-learn how cookies work, and after struggling through some headaches related to my auth I finally got it working properly.
 
 ## The context
-1. My backend API is written in [Hono](https://hono.dev/)
-2. My frontend is written in Nextjs
-3. While you can use Hono as Next's API routes, I found this especially painful to debug and moved Hono as a standalone API.
-4. Using [Lucia](https://lucia-auth.com/) to handle my core AuthN/Sessions
+* My backend API is written in [Hono](https://hono.dev/)
+* My frontend is written in [Next.js]([https:/](https://nextjs.org/))
+* You _can_ use [Hono as Next's API routes](https://hono.dev/docs/getting-started/vercel), I found this especially painful to debug as assumes nuances around the edge, and Vercel.
+* Using [Lucia](https://lucia-auth.com/) to handle my core AuthN/Sessions
 
-## The problem
+## The problems
+### Problem 1: Setting the secure cookie
 Lucia works nicely with cookies, and Hono is happy to accommodate. In theory, a route like this should set a `hello` cookie, with a value of `world`:
 ```ts
 const app = new Hono()
@@ -32,10 +33,11 @@ app.get('/', c => {
 
 However, if I were to make a plain `fetch` call from my Next.js app, it would not set a cookie.
 ```ts
-'use client' // using state so we need to set this as a client-route
+'use client'
 
-const MyRoute = () => {
+import { useEffect } from 'react'
 
+export default function Route() {
   const testCall = async () => {
     const res = await fetch(`${API_URL}/`)
     console.log(res.headers) // Log out headers
@@ -46,28 +48,25 @@ const MyRoute = () => {
   })
 
   return (
-    <div>
-      hello
-    </div>
+    <div>hello</div>
   )
-
 }
 
-export default MyRoute
 ```
 
 You can run this and check the `applications` part of devtools, or attempt to log out the response headers.
 
-### The issue
+#### The issue
 `fetch` has a [`credentials` property](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) to set to include cookies. However, Hono (and likely all API layers) has some requirements around security.
 
-### The solution
+#### The solution
 Step 1 was adding specific `cors` and `csrf` protection to my Hono app, as cores `'*'` would not work while setting secure cookies.
 
 ```ts
 // ...setup
 const app = new Hono()
-app.use(csrf())
+app
+  .use(csrf())
   .use(
     cors({
       origin: ['http://localhost:3000', 'http://localhost:3001'],
@@ -109,12 +108,93 @@ export default wrappedFetch(
   input: RequestInfo | URL,
   init?: RequestInit
 ) {
+  const headers = new Headers(init?.headers)
+  headers.set('Content-Type', 'application/json')
   return fetch(input, {
     ...init,
-    credentials: 'include' as RequestCredentials
+    credentials: 'include',
+    headers
   })
 }
 
 ```
 
 These steps allows me to have the proper security setup to automatically set cookies, and also to attach cookies to API requests. Using [the middleware Lucia specifies](https://lucia-auth.com/guides/validate-session-cookies/hono), requests will be properly authenticated.
+
+## Problem 2: Making this work server-side
+The astute will have noticed that my Next.js functions, thus far, used the `use server` directive. This means that the calls are executed on the client side, and the `cookie` being attached comes from access to `document.cookie`. If we tried to do the same thing in a server function, it would fail pretty epically because the server does not have access to `document`. Luckily, for this case Next has given us its []`cookie` utils](https://nextjs.org/docs/app/api-reference/functions/cookies). This lets us create a server side version of the API client, although this time we don't get to rely on magic.
+
+### The initial implementation
+This time we need a `fetch` call with the Auth Cookie manually set:
+```ts
+'use server' // this is now a server function and can use `cookies`
+
+import { cookies } from 'next/headers'
+
+function getAuthCookie() {
+  return cookies().get('auth_session')?.value
+}
+
+
+
+```
+
+There is a bug here though. The `token` value is only retrieved when this function is created. We need to run it every time we make a request. To do that we need to use a [factory function](https://www.patterns.dev/vanilla/factory-pattern), which will recreate the client on the server before all calls.
+
+Next.js also expects an `async` function to be exported from these files. So let's make these changes.
+
+```ts
+'use server' // this is now a server function and can use `cookies`
+
+import { cookies } from 'next/headers'
+
+function getAuthCookie() {
+  return cookies().get('auth_session')?.value
+}
+
+export async function createServerApiClient() {
+const token = getAuthCookie()
+
+  return function wrappedFetch(
+    input: RequestInfo | URL,
+    init?: RequestInit
+  ) {
+    const headers = new Headers(init?.headers)
+    if (token) {
+      headers.set('Cookie', `auth_session=${token}`)
+    }
+    headers.set('Content-Type', 'application/json')
+
+    return fetch(input, {
+      ...init,
+      credentials: 'include',
+      headers
+    })
+  }
+}
+```
+
+And when we use this in a regular route, which are server routes by default, allowing invocation of server functions using async
+```ts
+// src/app/page.tsx
+import { createServerApiClient } from '.'
+
+export async function Page() {
+  const fetch = await createServerApiClient()
+  const res = await fetch('/route')
+  const data = await res.json()
+
+  return (
+    <div>
+      <div>
+        { JSON.stringify(data) }
+      </div>
+      <div>
+        <h1>Hello world</h1>
+      </div>
+    </div>
+  )
+}
+```
+
+This will render out data properly from the server side.

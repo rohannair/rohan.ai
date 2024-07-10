@@ -1,7 +1,11 @@
 import adapter from "@sveltejs/adapter-node";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
-import { mdsvex, escapeSvelte } from "mdsvex";
-import { createHighlighter } from "shiki";
+import { mdsvex } from "mdsvex";
+import {
+  createShikiHighlighter,
+  runTwoSlash,
+  renderCodeToHTML,
+} from "shiki-twoslash";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,15 +18,22 @@ const config = {
   ],
   highlight: {
     highlighter: async (code, lang = "text") => {
-      const highlighter = await createHighlighter({
-        theme: ["nord"],
-        langs: ["typescript", "javascript"],
-      });
-      await highlighter.loadLanguage("typescript");
+      const highlighter = await createShikiHighlighter();
 
-      const html = escapeSvelte(
-        highlighter.codeToHtml(code, { lang, theme: "nord" })
+      let twoslashResults = null;
+      if (meta?.includes("twoslash")) {
+        twoslashResults = runTwoSlash(code, lang, {});
+      }
+
+      const html = renderCodeToHTML(
+        code,
+        lang,
+        meta || [],
+        {},
+        highlighter,
+        twoslashResults
       );
+
       return `{@html \`${html}\` }`;
     },
   },

@@ -29,6 +29,9 @@
   "type": "module",
   "dependencies": {
     "@sveltejs/adapter-node": "^5.0.1",
-    "shiki": "^1.10.3"
+    "dayjs": "^1.11.11",
+    "shiki": "^1.10.3",
+    "shiki-twoslash": "^3.1.2",
+    "svelte-time": "^0.9.0"
   }
 }
