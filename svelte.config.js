@@ -6,6 +6,9 @@ import {
   runTwoSlash,
   renderCodeToHTML,
 } from "shiki-twoslash";
+import rehypeExternalLinks from "rehype-external-links";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,6 +17,20 @@ const config = {
     vitePreprocess(),
     mdsvex({
       extensions: [".md"],
+      smartypants: {
+        dashes: "oldschool",
+      },
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeExternalLinks,
+          {
+            target: "_blank",
+            rel: ["noopener", "noreferrer"],
+          },
+        ],
+      ],
+      remarkPlugins: [remarkGfm],
     }),
   ],
   highlight: {
