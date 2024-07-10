@@ -28,6 +28,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/adapter-node": "^5.0.1"
+    "@sveltejs/adapter-node": "^5.0.1",
+    "shiki": "^1.10.3"
   }
 }
