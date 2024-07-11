@@ -122,7 +122,7 @@ export default wrappedFetch(
 These steps allows me to have the proper security setup to automatically set cookies, and also to attach cookies to API requests. Using [the middleware Lucia specifies](https://lucia-auth.com/guides/validate-session-cookies/hono), requests will be properly authenticated.
 
 ## Problem 2: Making this work server-side
-The astute will have noticed that my Next.js functions, thus far, used the `use server` directive. This means that the calls are executed on the client side, and the `cookie` being attached comes from access to `document.cookie`. If we tried to do the same thing in a server function, it would fail pretty epically because the server does not have access to `document`. Luckily, for this case Next has given us its [`cookie` utils](https://nextjs.org/docs/app/api-reference/functions/cookies). This lets us create a server side version of the API client, although this time we don't get to rely on magic.
+The astute will have noticed that my Next.js functions, thus far, used the `use client` directive. This means that the calls are executed on the client side, and the `cookie` being attached comes from access to `document.cookie`. If we tried to do the same thing in a server function, it would fail pretty epically because the server does not have access to `document`. Luckily, for this case Next has given us its [`cookie` utils](https://nextjs.org/docs/app/api-reference/functions/cookies). This lets us create a server side version of the API client, although this time we don't get to rely on magic.
 
 ### The initial implementation
 This time we need a `fetch` call with the Auth Cookie manually set:
