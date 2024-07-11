@@ -1,12 +1,3 @@
-<script lang="ts">
-  import * as constants from "$lib/constants";
-</script>
-
-<svelte:head>
-  <title>{constants.title}</title>
-  <meta name="description" content={constants.description} />
-</svelte:head>
-
 <header
   class="flex w-full items-center justify-between py-4 px-4 md:px-6 bg-gray-900 flex-grow-0 "
 >

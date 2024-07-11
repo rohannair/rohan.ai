@@ -1,5 +1,6 @@
 ---
 title: Cookies, Third-Party APIs and Sanity
+description: Handling cookies and third-party APIs involves secure cookie settings and CSRF protection. The post covers configuring cookies with Hono and Next.js, and workin around nuances with server functions and client routes.
 createdAt: 2024-07-10
 tags:
   - development

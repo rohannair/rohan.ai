@@ -1,10 +1,17 @@
-<svelte:head>
-  <title>Rohan Nair</title>
-  <meta
-    name="description"
-    content="Rohan Nair is a Toronto based entrepreneur, fractional CTO, technology leader, and consultant."
-  />
-</svelte:head>
+<script lang="ts">
+  import SvelteSeo from "svelte-seo";
+</script>
+
+<SvelteSeo
+  title="Rohan Nair"
+  description="Rohan Nair is a Toronto based entrepreneur, fractional CTO, technology leader, and consultant."
+  openGraph={{
+    title: "Rohan Nair",
+    description: "Rohan Nair is a Toronto based entrepreneur, fractional CTO, technology leader, and consultant.",
+    type: "page",
+  }}
+/>
+
 
 <h1 class="prose text-4xl antialiased">Hi, I'm Rohan</h1>
 <p class="prose text-lg leading-8">

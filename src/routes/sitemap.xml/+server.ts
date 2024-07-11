@@ -1,4 +1,19 @@
+import { getPosts } from '$lib/posts'
+
+async function getPostXml() {
+  const { posts } = await getPosts()
+  return posts.map(
+    ({ path }) => `
+  <url>
+    <loc>https://rohan.ai${path}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.64</priority>
+  </url>`,
+  )
+}
+
 export async function GET() {
+  const posts = await getPostXml()
   return new Response(
     `
 		<?xml version="1.0" encoding="UTF-8" ?>
@@ -15,11 +30,17 @@ export async function GET() {
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
+      <url>
+        <loc>https://rohan.ai/posts</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.80</priority>
+      </url>
+      ${posts.join('')}
 		</urlset>`.trim(),
     {
       headers: {
-        "Content-Type": "application/xml",
+        'Content-Type': 'application/xml',
       },
-    }
-  );
+    },
+  )
 }

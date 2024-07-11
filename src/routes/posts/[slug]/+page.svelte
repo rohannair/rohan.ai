@@ -1,20 +1,32 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Time from "svelte-time"
+  import SvelteSeo from "svelte-seo";
 
   export let data: PageData;
   const { component, meta } = data;
 </script>
 
 <svelte:head>
-  <title>{meta.title}</title>
-  <meta property="og:type" content="article" />
-	<meta property="og:title" content={data.meta.title} />
   <link
-        href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-nord.min.css"
-        rel="stylesheet"
-    />
+    href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-nord.min.css"
+    rel="stylesheet"
+  />
 </svelte:head>
+
+<SvelteSeo
+  title={meta.title}
+  description={meta.description}
+  openGraph={{
+    title: meta.title,
+    description: meta.description,
+    type: "article",
+    article: {
+      published_time: meta.createdAt,
+    },
+  }}
+
+/>
 
 <div class="space-y-4">
   <div>
