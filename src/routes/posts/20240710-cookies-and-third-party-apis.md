@@ -122,10 +122,10 @@ export default wrappedFetch(
 These steps allows me to have the proper security setup to automatically set cookies, and also to attach cookies to API requests. Using [the middleware Lucia specifies](https://lucia-auth.com/guides/validate-session-cookies/hono), requests will be properly authenticated.
 
 ## Problem 2: Making this work server-side
-The astute will have noticed that my Next.js functions, thus far, used the `use client` directive. This means that the calls are executed on the client side, and the `cookie` being attached comes from access to `document.cookie`. If we tried to do the same thing in a server function, it would fail pretty epically because the server does not have access to `document`. Luckily, for this case Next has given us its [`cookie` utils](https://nextjs.org/docs/app/api-reference/functions/cookies). This lets us create a server side version of the API client, although this time we don't get to rely on magic.
+The astute will have noticed that my Next.js functions, thus far, used the `use client` directive. This means that the fetch calls are executed on the client side, and the `cookie` being attached comes from access to `document.cookie`. If we tried to do the same thing in a server function, it would fail epically because the server does not have access to `document`; we don't get to rely on browser magic to set cookies. Luckily we can use Next's [`cookie` utils](https://nextjs.org/docs/app/api-reference/functions/cookies) to work around this, letting us create a server-side version of the API client while setting the cookie in code.
 
 ### The initial implementation
-This time we need a `fetch` call with the Auth Cookie manually set:
+We need a `fetch` call with the Auth Cookie set in configuration:
 ```ts
 'use server' // this is now a server function and can use `cookies`
 
@@ -136,7 +136,7 @@ function getAuthCookie() {
 }
 ```
 
-There is a bug here though. The `token` value is only retrieved when this function is created. We need to run it every time we make a request. To do that we need to use a [factory function](https://www.patterns.dev/vanilla/factory-pattern), which will recreate the client on the server before all calls.
+There is a bug here waiting to happen -- the `token` value is retrieved once, when this function is created. This doesn't work as we need tokens set per request, of we'll make all calls as a single user. To do this, let's use a [factory function](https://www.patterns.dev/vanilla/factory-pattern), which will recreate the client on the server before all calls.
 
 Next.js also expects an `async` function to be exported from these files. So let's make these changes.
 
@@ -150,7 +150,7 @@ function getAuthCookie() {
 }
 
 export async function createServerApiClient() {
-  const token = getAuthCookie() // This is now called on all requests
+  const token = getAuthCookie()
   return function wrappedFetch(
     input: RequestInfo | URL,
     init?: RequestInit
@@ -169,8 +169,8 @@ export async function createServerApiClient() {
   }
 }
 ```
+Token is now retrieved on all requests from client to Next.js server, and when we use this in a regular route, it will properly use the cookie set per-requesting user, preventing data leak between requests.
 
-And when we use this in a regular route, which are server routes by default, allowing invocation of server functions using async
 ```ts
 // src/app/page.tsx
 import { createServerApiClient } from '.'
