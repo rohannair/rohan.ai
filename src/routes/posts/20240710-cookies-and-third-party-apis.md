@@ -61,7 +61,7 @@ You can run this and check the `applications` part of devtools, or attempt to lo
 `fetch` has a [`credentials` property](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) to set to include cookies. However, Hono (and likely all API layers) has some requirements around security.
 
 #### The solution
-Step 1 was adding specific `cors` and `csrf` protection to my Hono app, as cores `'*'` would not work while setting secure cookies.
+Step 1 was adding specific `cors` and `csrf` protection to my Hono app, as `cors: '*'` would not work for setting secure cookies.
 
 ```ts
 // ...setup
@@ -101,9 +101,9 @@ export function setAuthCookie(c: Context, name: string, value: string) {
 }
 ```
 
-We disabled the `sameSite` settings here as we have cors allowlisting done, and csrf on.
+We aren't sweating the `sameSite` settings here as we have cors allowlisting done, and csrf on -- only specific origins can hit this API.
 
-Step 3 was changing my api client:
+Step 3 was changing my API client:
 ```typescript
 export default wrappedFetch(
   input: RequestInfo | URL,
@@ -117,7 +117,6 @@ export default wrappedFetch(
     headers
   })
 }
-
 ```
 
 These steps allows me to have the proper security setup to automatically set cookies, and also to attach cookies to API requests. Using [the middleware Lucia specifies](https://lucia-auth.com/guides/validate-session-cookies/hono), requests will be properly authenticated.
@@ -135,9 +134,6 @@ import { cookies } from 'next/headers'
 function getAuthCookie() {
   return cookies().get('auth_session')?.value
 }
-
-
-
 ```
 
 There is a bug here though. The `token` value is only retrieved when this function is created. We need to run it every time we make a request. To do that we need to use a [factory function](https://www.patterns.dev/vanilla/factory-pattern), which will recreate the client on the server before all calls.
@@ -154,8 +150,7 @@ function getAuthCookie() {
 }
 
 export async function createServerApiClient() {
-const token = getAuthCookie()
-
+  const token = getAuthCookie() // This is now called on all requests
   return function wrappedFetch(
     input: RequestInfo | URL,
     init?: RequestInit
