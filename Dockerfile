@@ -32,7 +32,9 @@ COPY . .
 RUN bun run build
 
 # Finally, build the production image with minimal footprint
-FROM base
+FROM node:20-slim
+
+RUN npm install -g bun
 
 # Set the environment variable for production
 ENV NODE_ENV=production
