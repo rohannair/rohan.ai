@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import Time from "svelte-time"
+  import Time from "svelte-time";
   import SvelteSeo from "svelte-seo";
 
   export let data: PageData;
@@ -25,15 +25,18 @@
       published_time: meta.createdAt,
     },
   }}
-
 />
 
 <div class="space-y-4">
   <div>
-  <h1 class="text-4xl font-bold">{meta.title}</h1>
-  <p class="mt-0 text-sm text-gray-400">
-    Published <Time relative timestamp={meta.createdAt} format="dddd @ h:mm A · MMMM D, YYYY" />
-  </p>
+    <h1 class="text-4xl font-bold">{meta.title}</h1>
+    <p class="mt-0 text-sm text-gray-400">
+      Published <Time
+        relative
+        timestamp={meta.createdAt}
+        format="dddd @ h:mm A · MMMM D, YYYY"
+      />
+    </p>
   </div>
 
   <article class="article mt-8 max-w-4xl">

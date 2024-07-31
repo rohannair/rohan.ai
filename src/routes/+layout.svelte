@@ -2,7 +2,6 @@
   import "@unocss/reset/tailwind.css";
   import "uno.css";
   import "../app.css";
-  import SvelteSeo from "svelte-seo";
 
   import Header from "../components/header.svelte";
   import Footer from "../components/footer.svelte";
