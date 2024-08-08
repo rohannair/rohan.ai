@@ -8,14 +8,14 @@ tags:
   - open-source
 ---
 
-The studio model is very popular right now, as many people figure out that building vertical SaaS companies can be made formulaic. There's a lot to be said about the economics of Studios, one crucial thing I want to focus on is output. Or rather, the lack of output from these sorts of firms.
+The studio model is very popular right now as more people figure out that building vertical SaaS companies can be made formulaic. There's a lot to be said about the economics of Studios, but I want to focus on is output. Or rather, the lack of output from these sorts of firms.
 
 ## VC Platforms, deconstructed
-A studio is an advanced permutation of VC platform, in that the investor does the validation work first to fit to their investment thesis, and finds the right manager for that business second. The manager, usually given the CEO title, is given access to the studio's resources.
+A studio is an advanced permutation of VC platform, in which the investor provides market validation for a new business, and secondarily finds the right manager for that business. The manager, usually given the CEO title, is given access to the studio's resources (typically recruiting, product, engineering) to use the studio as an ostensible co-founder.
 
-Two things enable this: 1) assymetric access to market insights, and 2) a repeatable process allowing for rapid go to market.
+Two things enable this: 1) asymmetric access to markets and customers, and 2) a repeatable process allowing for rapid go to market.
 
-The strength of assymetric access is not a novel concept, rather it's what powers a lot of the best investment firms regardless of asset class. Within a studio, the nuance is that the investor comes with the insight, as opposed to the founder. The advantage here is that a company can be launched with total alignment with market goals, and to fill gaps investors see. This usually results in a raised floor for the company. The disadvantage is that a disproportionate amount of capital growth comes from unique insights and advantages from founders.
+The strength of asymmetric access is not a novel concept -- rather it's what enables a lot of the best investment firms regardless of asset class. Within a venture studio, assymmetric access comes through partnerships (whether via governments, portfolio companies, or institutions with a need to fill) as opposed to an entrepreneur. The advantage here is that a company can be launched, validated against market gaps that investors see, with professional management. Such a model usually results in a raised floor for the company. The disadvantage is that a disproportionate amount of capital growth comes from unique insights and advantages from founders, which a studio company doesn't necessarily get access to. This means lower exit valuations, but with the tradeoff of higher exit pprobability.
 
 I would love to wax rhetoric about this topic (and I could go on for hours) but this post is about point #2.
 
