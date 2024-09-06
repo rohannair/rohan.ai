@@ -12,14 +12,17 @@ body {
 
 .prose article h1 {
   @apply my-0;
+  text-wrap: balance;
 }
 
 .prose article :is(h2, h3, h4) {
   @apply block text-white mb-4 mt-8;
+  text-wrap: balance;
 }
 
-.prose article :is(p, li) {
-  @apply text-gray-300 leading-8;
+.prose article :is(p, li, figcaption) {
+  @apply text-gray-300 leading-8 max-w-[67ch];
+  text-wrap: pretty;
 }
 
 .prose article h1 + p {
