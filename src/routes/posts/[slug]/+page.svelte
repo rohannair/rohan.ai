@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
-  import Time from "svelte-time";
   import SvelteSeo from "svelte-seo";
+  import Time from "svelte-time";
+  import type { PageData } from "./$types";
 
   export let data: PageData;
   const { component, meta } = data;

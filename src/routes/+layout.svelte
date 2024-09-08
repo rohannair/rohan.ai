@@ -3,26 +3,16 @@
   import "uno.css";
   import "../app.css";
 
-  import Header from "../components/header.svelte";
-  import Footer from "../components/footer.svelte";
+  import Footer from "../lib/components/footer.svelte";
+  import Header from "../lib/components/header.svelte";
 </script>
 
-<div class="flex flex-col min-h-screen bg-gray-900 text-white">
+<div class="flex flex-col min-h-screen bg-gray-900 text-white mx-auto w-full">
   <Header />
 
-  <main class="flex-grow w-full">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="prose lg:prose-xl prose-invert max-w-none">
-        <slot />
-      </div>
-    </div>
+  <main class="container mx-auto prose lg:prose-xl prose-invert">
+    <slot />
   </main>
 
   <Footer />
 </div>
-
-<style>
-  :global(body) {
-    @apply bg-gray-900 text-white;
-  }
-</style>
