@@ -1,11 +1,26 @@
 # Welcome
 
-This is my personal website. It's built using [SvelteKit](https://kit.svelte.dev/), [Tailwind](https://tailwindcss.com/) and ingenuity. It runs on [Bun](https://bun.sh). It's got a 100% score on Lighthouse:
+This is my personal website rebuilt with **Next.js** and **React**. It uses server-side rendering for great SEO and is styled with **Tailwind CSS** and **shadcn/ui** components.
 
-<img width="972" alt="Screenshot 2024-07-10 at 20 42 16" src="https://github.com/rohannair/rohan.ai/assets/3764902/2ce484e4-8f7a-4a05-bb4f-85ddc6c4a671">
+The original SvelteKit version lives in the commit history but this branch now contains the React implementation.
 
-There are some other technologies as well:
-* [UnoCSS](https://unocss.dev/) for a faster Tailwind runtie
-* [Shiki](https://shiki.style/) for Markdown syntax highlighting
+## Getting Started
 
-This is [MIT licensed](https://github.com/rohannair/rohan.ai/blob/master/LICENSE), so go wild forking the repo.
+Install dependencies and start the development server:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+If you encounter `ERR_PNPM_FETCH_403` errors during install, it's due to
+registry access restrictions in your environment. The packages are public and
+do **not** require `pnpm login`.
+
+Build the production version with:
+
+```bash
+pnpm build
+```
+
+This project is [MIT licensed](https://github.com/rohannair/rohan.ai/blob/master/LICENSE).

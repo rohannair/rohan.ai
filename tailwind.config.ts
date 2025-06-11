@@ -1,12 +1,14 @@
 import type { Config } from 'tailwindcss'
 
-export default {
-  content: ['./src/**/*.{html,md,js,svelte,ts}'],
+const config: Config = {
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+  ],
   theme: {
-    extend: {
-      gridTemplateRows: {
-        layout: 'auto 1fr auto',
-      },
-    },
+    extend: {},
   },
-} satisfies Config
+  plugins: [],
+}
+export default config
