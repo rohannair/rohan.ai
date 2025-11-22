@@ -8,7 +8,7 @@ import UnoCSS from 'unocss/vite'
 import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
 import extractorSvelte from '@unocss/extractor-svelte'
-import TailwindCSS from 'tailwindcss'
+import TailwindCSS from '@tailwindcss/postcss'
 // @ts-expect-error ts(7016)
 import LightningCSS from 'postcss-lightningcss'
 
