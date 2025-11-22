@@ -1,13 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ .site-shell {
+   @apply flex min-h-screen flex-col bg-gray-950 text-gray-100;
+ }
+
+ .site-main {
+   @apply flex-1 w-full;
+ }
+
+ .site-container {
+   @apply mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8;
+ }
 
 html {
   @apply h-full min-h-full;
 }
 
 body {
-  @apply flex h-full min-h-full flex-col overflow-y-scroll bg-gray-900 text-white;
+  @apply flex h-full min-h-full flex-col overflow-y-scroll bg-gray-950 text-gray-100 font-sans antialiased;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-primary-400/80 ring-offset-2 ring-offset-gray-950;
 }
 
 .prose article h1 {
@@ -21,7 +36,7 @@ body {
 }
 
 .prose article :is(p, li, figcaption) {
-  @apply text-gray-300 leading-8 max-w-[67ch];
+  @apply text-gray-300 leading-relaxed max-w-[70ch];
   text-wrap: pretty;
 }
 
@@ -30,7 +45,7 @@ body {
 }
 
 .prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)) {
-  @apply bg-gray-800 rounded font-mono font-light p-1 whitespace-normal;
+  @apply bg-gray-900/80 rounded font-mono font-light px-1 py-0.5 whitespace-normal text-primary-200;
 }
 
 .prose :where(:not(pre) > code):not(:where(.not-prose, .not-prose *)):before,
@@ -39,7 +54,7 @@ body {
 }
 
 .prose article a {
-  @apply text-blue-400;
+  @apply text-primary-300 underline underline-offset-4 decoration-primary-500/40 hover:decoration-primary-400;
 }
 
 .prose article a[target="_blank"] {

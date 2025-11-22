@@ -7,11 +7,13 @@
   import Header from "../lib/components/header.svelte";
 </script>
 
-<div class="flex flex-col min-h-screen bg-gray-900 text-white mx-auto w-full">
+<div class="site-shell">
   <Header />
 
-  <main class="container mx-auto prose lg:prose-xl prose-invert">
-    <slot />
+  <main class="site-main">
+    <div class="site-container py-12 md:py-16 prose lg:prose-lg prose-invert">
+      <slot />
+    </div>
   </main>
 
   <Footer />
