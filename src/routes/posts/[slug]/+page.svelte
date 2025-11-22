@@ -27,19 +27,18 @@
   }}
 />
 
-<div class="space-y-4">
-  <div>
-    <h1 class="text-4xl font-bold">{meta.title}</h1>
-    <p class="mt-0 text-sm text-gray-400">
-      Published <Time
-        relative
+<div class="space-y-8">
+  <header class="border-b border-gray-800 pb-8">
+    <h1 class="mb-3 text-3xl sm:text-4xl font-semibold tracking-tight font-headings text-gray-100">{meta.title}</h1>
+    <p class="text-xs font-mono text-gray-500 uppercase tracking-wide">
+      <Time
         timestamp={meta.createdAt}
-        format="dddd @ h:mm A · MMMM D, YYYY"
+        format="MMMM D, YYYY"
       />
     </p>
-  </div>
+  </header>
 
-  <article class="article mt-8 max-w-4xl">
+  <article class="mt-8 max-w-none">
     <svelte:component this={component} />
   </article>
 </div>

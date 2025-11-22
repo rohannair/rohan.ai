@@ -7,12 +7,10 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export default defineConfig({
   theme: {
     fontFamily: {
-      headings: ['Roboto Flex', 'Inter', ...defaultTheme.fontFamily.sans],
+      headings: ['Roboto Flex', 'ui-sans-serif', 'system-ui', ...defaultTheme.fontFamily.sans],
+      mono: ['JetBrains Mono', 'IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
-      fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
         primary: {
           50: '#fff2f2',
@@ -34,7 +32,7 @@ export default defineConfig({
     presetWebFonts({
       provider: 'google',
       fonts: {
-        sans: ['Inter:100,400,500,600,700'],
+        mono: 'JetBrains Mono:400,500,600',
       },
     }),
   ],
