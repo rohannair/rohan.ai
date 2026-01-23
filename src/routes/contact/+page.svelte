@@ -9,8 +9,20 @@
 </script>
 
 <SvelteSeo
-  title="Contact | Rohan Nair"
-  description="Get in touch with Rohan Nair for fractional CTO services, software architecture consulting, or advisory."
+  title="Contact - Fractional CTO Services | Rohan Nair"
+  description="Get in touch with Rohan Nair for fractional CTO services, software architecture consulting, startup advisory, or investment inquiries in DeepTech and HardTech."
+  canonical="https://rohan.ai/contact"
+  openGraph={{
+    title: "Contact - Fractional CTO Services | Rohan Nair",
+    description: "Get in touch with Rohan Nair for fractional CTO services, software architecture consulting, startup advisory, or investment inquiries in DeepTech and HardTech.",
+    url: "https://rohan.ai/contact",
+    type: "website",
+  }}
+  twitter={{
+    card: "summary",
+    title: "Contact - Fractional CTO Services | Rohan Nair",
+    description: "Get in touch with Rohan Nair for fractional CTO services, software architecture consulting, startup advisory, or investment inquiries in DeepTech and HardTech.",
+  }}
 />
 
 <div class="max-w-xl mx-auto">

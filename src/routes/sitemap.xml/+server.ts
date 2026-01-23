@@ -35,6 +35,11 @@ export async function GET() {
         <changefreq>daily</changefreq>
         <priority>0.80</priority>
       </url>
+      <url>
+        <loc>https://rohan.ai/contact</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+      </url>
       ${posts.join('')}
 		</urlset>`.trim(),
     {

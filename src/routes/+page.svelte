@@ -3,13 +3,19 @@
 </script>
 
 <SvelteSeo
-  title="Rohan Nair"
-  description="Rohan Nair is a Toronto based entrepreneur, fractional CTO, technology leader, and consultant."
+  title="Rohan Nair - Fractional CTO & Technology Leader in Toronto"
+  description="Rohan Nair is a Toronto-based fractional CTO, entrepreneur, and technology leader helping startups build scalable products and avoid costly technical mistakes."
+  canonical="https://rohan.ai/"
   openGraph={{
-    title: "Rohan Nair",
-    description:
-      "Rohan Nair is a Toronto based entrepreneur, fractional CTO, technology leader, and consultant.",
-    type: "page",
+    title: "Rohan Nair - Fractional CTO & Technology Leader in Toronto",
+    description: "Rohan Nair is a Toronto-based fractional CTO, entrepreneur, and technology leader helping startups build scalable products and avoid costly technical mistakes.",
+    url: "https://rohan.ai/",
+    type: "website",
+  }}
+  twitter={{
+    card: "summary",
+    title: "Rohan Nair - Fractional CTO & Technology Leader in Toronto",
+    description: "Rohan Nair is a Toronto-based fractional CTO, entrepreneur, and technology leader helping startups build scalable products and avoid costly technical mistakes.",
   }}
 />
 
