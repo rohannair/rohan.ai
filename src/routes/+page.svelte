@@ -57,7 +57,7 @@
     My best work involves using LLMs to tame massive amounts of unstructured data into succinct, meaningful interfaces that make complex systems feel simple.
   </p>
   <p>
-    I have a soft spot for <strong class="text-gray-100">FinTech</strong>, <strong class="text-gray-100">Healthcare</strong>, and <strong class="text-gray-100">Spatial Computing</strong>—high-stakes industries where accuracy actually matters.
+    I have a soft spot for <strong class="text-gray-100">FinTech</strong>, <strong class="text-gray-100">Healthcare</strong>, and <strong class="text-gray-100">Commerce</strong>, which pretty much implies where I have spent full-time employment hours before.
   </p>
 </div>
 
