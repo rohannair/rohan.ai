@@ -31,7 +31,7 @@
       Get in touch
     </h1>
     <p class="text-gray-400 leading-[1.75]">
-      Interested in working together? Fill out the form below and I'll get back to you as soon as I can.
+      Interested in working together? Fill out the form below and I'll get back to you shortly.
     </p>
   </div>
 

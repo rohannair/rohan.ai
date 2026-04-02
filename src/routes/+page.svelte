@@ -26,10 +26,10 @@
 <div class="space-y-5 text-gray-300 leading-[1.75] max-w-[60ch]">
   <p>
     I've spent over {new Date().getFullYear() - 2010} years in the Toronto technology
-    and startup ecosystem, working at and founding multiple startups.
+    and startup ecosystem, building and founding multiple startups.
   </p>
   <p>
-    Currently, I help investors and business owners cut through the AI hype to build products that actually work. I also sparingly invest in and advise early-stage software companies.
+    Currently, I help investors and business owners cut through the AI hype to build products that actually work. I also selectively invest in and advise early-stage software companies.
   </p>
 </div>
 
@@ -59,13 +59,13 @@
 </h2>
 <div class="space-y-5 text-gray-300 leading-[1.75] max-w-[60ch]">
   <p>
-    I gravitate towards complex data engineering challenges and UI-heavy projects where user experience is the differentiator.
+    I'm drawn to complex data engineering challenges and UI-heavy projects where user experience is the differentiator.
   </p>
   <p>
     My best work involves using LLMs to tame massive amounts of unstructured data into succinct, meaningful interfaces that make complex systems feel simple.
   </p>
   <p>
-    I have a soft spot for <strong class="text-gray-100">FinTech</strong>, <strong class="text-gray-100">Healthcare</strong>, and <strong class="text-gray-100">Commerce</strong>, which pretty much implies where I have spent full-time employment hours before.
+    I have a soft spot for <strong class="text-gray-100">FinTech</strong>, <strong class="text-gray-100">Healthcare</strong>, and <strong class="text-gray-100">Commerce</strong>, which is where I've spent most of my career.
   </p>
 </div>
 
@@ -77,6 +77,6 @@
     I invest in and advise <strong class="text-gray-100">DeepTech</strong> and <strong class="text-gray-100">HardTech</strong> startups, because I prefer engineering challenges over marketing ones. I also help companies build <strong class="text-gray-100">LLM architectures</strong> that move beyond "cool demo" to reliable production systems.
   </p>
   <p>
-    I am a public market investor in <strong class="text-gray-100">semiconductor companies</strong>. Which really just means a lot of my emotions are based on Nvidia's earnings.
+    I'm a public market investor in <strong class="text-gray-100">semiconductor companies</strong> — which really just means a lot of my emotions are based on Nvidia's earnings.
   </p>
 </div>
