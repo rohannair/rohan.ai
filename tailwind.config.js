@@ -17,8 +17,9 @@ export default {
         },
       },
       fontFamily: {
-        headings: ['Roboto Flex', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'IBM Plex Mono', 'monospace'],
+        sans: ['DM Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        headings: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['Fira Code', 'ui-monospace', 'monospace'],
       },
       gridTemplateRows: {
         layout: 'auto 1fr auto',

@@ -23,24 +23,20 @@
   }}
 />
 
-<h1 class="mb-6 text-sm font-mono uppercase tracking-[0.2em] text-gray-400">
+<h1 class="mb-10 text-[13px] font-mono uppercase tracking-[0.2em] text-gray-500">
   Writing
 </h1>
-<ul class="grid gap-6 list-none p-0 m-0 w-full not-prose">
+<ul class="grid gap-8 list-none p-0 m-0 w-full not-prose">
   {#each data.posts as { meta, path }}
-    <li class="grid gap-2 p-0 m-0 group">
-      <h2 class="mb-0">
-        <a href={path} class="text-xl font-semibold font-headings text-gray-100 no-underline group-hover:text-primary-300 transition-colors">
+    <li class="grid gap-1.5 p-0 m-0 group">
+      <p class="text-[13px] font-mono text-gray-600 m-0">
+        <Time relative timestamp={meta.createdAt} format="MMM D, YYYY" />
+      </p>
+      <h2 class="m-0">
+        <a href={path} class="text-xl font-medium font-headings text-gray-200 no-underline group-hover:text-white transition-colors">
           {meta.title}
         </a>
       </h2>
-      <p class="text-sm font-mono text-gray-500">
-        <Time relative timestamp={meta.createdAt} format="MMM D, YYYY" />
-      </p>
     </li>
   {/each}
 </ul>
-
-<div class="pagination">
-  <!-- Add pagination controls here -->
-</div>

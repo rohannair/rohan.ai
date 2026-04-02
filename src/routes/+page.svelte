@@ -19,37 +19,45 @@
   }}
 />
 
-<h1 class="mb-4 text-3xl sm:text-4xl font-semibold tracking-tight font-headings">
+<h1 class="mb-5 text-3xl sm:text-4xl font-semibold tracking-tight font-headings">
   Hi, I'm Rohan
 </h1>
 
-<p class="text-base sm:text-lg text-gray-300 leading-relaxed">
-  I've spent over {new Date().getFullYear() - 2010} years in the Toronto technology
-  and startup ecosystem, working at and founding multiple startups.
-</p>
-<p class="text-base sm:text-lg text-gray-300 leading-relaxed">
-  Currently, I help investors and business owners cut through the AI hype to build products that actually work. I also sparingly invest in and advise early-stage software companies.
-</p>
+<div class="space-y-5 text-gray-300 leading-[1.75] max-w-[60ch]">
+  <p>
+    I've spent over {new Date().getFullYear() - 2010} years in the Toronto technology
+    and startup ecosystem, working at and founding multiple startups.
+  </p>
+  <p>
+    Currently, I help investors and business owners cut through the AI hype to build products that actually work. I also sparingly invest in and advise early-stage software companies.
+  </p>
+</div>
 
-<h2 class="mt-10 mb-4 text-sm font-mono uppercase tracking-[0.2em] text-gray-400">
+<h2 class="mt-16 mb-6 text-[13px] font-mono uppercase tracking-[0.2em] text-gray-500">
   Current Work
 </h2>
-<ul class="space-y-3">
-  <li class="text-sm sm:text-base leading-relaxed">
-    <strong class="text-blue-500">Fractional CTO</strong>. Bringing professional engineering practices to growing startups without killing their momentum.
+<ul class="space-y-4 list-none p-0 m-0">
+  <li class="leading-[1.7]">
+    <strong class="text-blue-400 font-headings font-medium">Fractional CTO</strong>
+    <span class="text-gray-400 mx-1.5">&mdash;</span>
+    <span class="text-gray-300">Bringing professional engineering practices to growing startups without killing their momentum.</span>
   </li>
-  <li class="text-sm sm:text-base leading-relaxed">
-    <strong class="text-green-400">Software Architecture</strong>. Designing scalable, data-heavy systems that survive contact with the real world.
+  <li class="leading-[1.7]">
+    <strong class="text-emerald-400 font-headings font-medium">Software Architecture</strong>
+    <span class="text-gray-400 mx-1.5">&mdash;</span>
+    <span class="text-gray-300">Designing scalable, data-heavy systems that survive contact with the real world.</span>
   </li>
-  <li class="text-sm sm:text-base leading-relaxed">
-    <strong class="text-yellow-400">Advisory Services</strong>. Helping founders avoid the expensive technical mistakes I've seen dozens of times before.
+  <li class="leading-[1.7]">
+    <strong class="text-amber-400 font-headings font-medium">Advisory Services</strong>
+    <span class="text-gray-400 mx-1.5">&mdash;</span>
+    <span class="text-gray-300">Helping founders avoid the expensive technical mistakes I've seen dozens of times before.</span>
   </li>
 </ul>
 
-<h2 class="mt-10 mb-4 text-sm font-mono uppercase tracking-[0.2em] text-gray-400">
+<h2 class="mt-16 mb-6 text-[13px] font-mono uppercase tracking-[0.2em] text-gray-500">
   Technical Sweet Spot
 </h2>
-<div class="space-y-4 text-sm sm:text-base leading-relaxed text-gray-300">
+<div class="space-y-5 text-gray-300 leading-[1.75] max-w-[60ch]">
   <p>
     I gravitate towards complex data engineering challenges and UI-heavy projects where user experience is the differentiator.
   </p>
@@ -61,10 +69,10 @@
   </p>
 </div>
 
-<h2 class="mt-10 mb-4 text-sm font-mono uppercase tracking-[0.2em] text-gray-400">
+<h2 class="mt-16 mb-6 text-[13px] font-mono uppercase tracking-[0.2em] text-gray-500">
   Focus & Thesis
 </h2>
-<div class="space-y-4 text-sm sm:text-base leading-relaxed text-gray-300">
+<div class="space-y-5 text-gray-300 leading-[1.75] max-w-[60ch]">
   <p>
     I invest in and advise <strong class="text-gray-100">DeepTech</strong> and <strong class="text-gray-100">HardTech</strong> startups, because I prefer engineering challenges over marketing ones. I also help companies build <strong class="text-gray-100">LLM architectures</strong> that move beyond "cool demo" to reliable production systems.
   </p>

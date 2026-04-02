@@ -1,17 +1,17 @@
-<header class="w-full flex-grow-0 border-b border-gray-800/80 bg-gray-950/90">
-  <div class="site-container flex flex-row justify-between items-baseline py-4">
-    <span>
-      <a href="/" class="text-xl font-bold">Rohan Nair</a>
-    </span>
-    <nav class="flex items-center gap-4 md:gap-6">
+<header class="w-full flex-grow-0 border-b border-gray-800/50">
+  <div class="site-container flex flex-row justify-between items-baseline py-5">
+    <a href="/" class="text-lg font-headings font-semibold tracking-tight text-gray-100 no-underline">
+      Rohan Nair
+    </a>
+    <nav class="flex items-center gap-6">
       <a
         href="/posts"
-        class="text-xs sm:text-sm font-mono tracking-wide uppercase text-gray-400 hover:text-primary-200 transition-colors"
+        class="text-[13px] font-mono tracking-wider uppercase text-gray-500 hover:text-gray-200 transition-colors"
         >Posts</a
       >
       <a
         href="/contact"
-        class="text-xs sm:text-sm font-mono tracking-wide uppercase text-gray-400 hover:text-primary-200 transition-colors"
+        class="text-[13px] font-mono tracking-wider uppercase text-gray-500 hover:text-gray-200 transition-colors"
         >Contact</a
       >
     </nav>

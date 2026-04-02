@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
+@plugin "@tailwindcss/typography";
  .site-shell {
    @apply flex min-h-screen flex-col bg-gray-950 text-gray-100;
  }
@@ -9,7 +10,7 @@
  }
 
  .site-container {
-   @apply mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8;
+   @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
  }
 
 html {
@@ -18,6 +19,7 @@ html {
 
 body {
   @apply flex h-full min-h-full flex-col overflow-y-scroll bg-gray-950 text-gray-100 font-sans antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 :focus-visible {
@@ -25,17 +27,17 @@ body {
 }
 
 .prose article h1 {
-  @apply my-0;
+  @apply my-0 font-headings;
   text-wrap: balance;
 }
 
 .prose article :is(h2, h3, h4) {
-  @apply block text-white mb-4 mt-8;
+  @apply block text-white font-headings mb-5 mt-12;
   text-wrap: balance;
 }
 
 .prose article :is(p, li, figcaption) {
-  @apply text-gray-300 leading-relaxed max-w-[70ch];
+  @apply text-gray-300 leading-[1.75] max-w-[65ch];
   text-wrap: pretty;
 }
 

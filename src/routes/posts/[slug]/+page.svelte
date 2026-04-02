@@ -27,18 +27,16 @@
   }}
 />
 
-<div class="space-y-8">
-  <header class="border-b border-gray-800 pb-8">
-    <h1 class="mb-3 text-3xl sm:text-4xl font-semibold tracking-tight font-headings text-gray-100">{meta.title}</h1>
-    <p class="text-xs font-mono text-gray-500 uppercase tracking-wide">
-      <Time
-        timestamp={meta.createdAt}
-        format="MMMM D, YYYY"
-      />
-    </p>
-  </header>
+<header class="mb-12">
+  <p class="text-[13px] font-mono text-gray-500 uppercase tracking-wider mb-4">
+    <Time
+      timestamp={meta.createdAt}
+      format="MMMM D, YYYY"
+    />
+  </p>
+  <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight font-headings text-gray-100 m-0">{meta.title}</h1>
+</header>
 
-  <article class="mt-8 max-w-none">
-    <svelte:component this={component} />
-  </article>
-</div>
+<article class="max-w-none">
+  <svelte:component this={component} />
+</article>

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import "@unocss/reset/tailwind.css";
-  import "uno.css";
   import "../app.css";
 
   import Footer from "../lib/components/footer.svelte";
@@ -11,7 +9,7 @@
   <Header />
 
   <main class="site-main">
-    <div class="site-container py-12 md:py-16 prose lg:prose-lg prose-invert">
+    <div class="site-container py-16 md:py-24 prose prose-lg prose-invert">
       <slot />
     </div>
   </main>
