@@ -1,8 +1,9 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
   import SvelteSeo from "svelte-seo";
-  import type { ActionData } from './$types';
+  import type { ActionData, PageData } from './$types';
 
+  export let data: PageData;
   export let form: ActionData;
 
   let loading = false;
@@ -58,6 +59,14 @@
       }}
       class="space-y-7"
     >
+      <input type="hidden" name="formToken" value={data.formToken} />
+      <input type="hidden" name="renderedAt" value={data.renderedAt} />
+
+      <div class="absolute left-[-10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="grid gap-7 sm:grid-cols-2">
         <div class="space-y-2.5">
           <label for="name" class="block text-[13px] font-mono uppercase tracking-wider text-gray-500">
@@ -140,6 +149,18 @@
 
       {#if form?.missing}
         <p class="text-red-400 text-sm">Please fill out all required fields.</p>
+      {/if}
+
+      {#if form?.invalidSubmission}
+        <p class="text-red-400 text-sm">Please refresh the page and try again.</p>
+      {/if}
+
+      {#if form?.rateLimited}
+        <p class="text-red-400 text-sm">Too many attempts from this network. Please wait a bit and try again.</p>
+      {/if}
+
+      {#if form?.error}
+        <p class="text-red-400 text-sm">Something went wrong while sending your message. Please try again.</p>
       {/if}
     </form>
   {/if}
