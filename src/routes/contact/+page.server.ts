@@ -1,11 +1,15 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { dev } from '$app/environment';
 import { fail } from '@sveltejs/kit';
+import { env as publicEnv } from '$env/dynamic/public';
 import { Resend } from 'resend';
 import { env } from '$env/dynamic/private';
 import type { Actions, PageServerLoad } from './$types';
 
 const HONEYPOT_FIELD = 'website';
+const TURNSTILE_FIELD = 'cf-turnstile-response';
+const TURNSTILE_ACTION = 'contact';
+const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const MIN_SUBMIT_DELAY_MS = 500;
 const FORM_TOKEN_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -16,6 +20,13 @@ type RateLimitEntry = {
   attempts: number;
   windowStartedAt: number;
   blockedUntil?: number;
+};
+
+type TurnstileVerificationResult = {
+  success: boolean;
+  action?: string;
+  hostname?: string;
+  'error-codes'?: string[];
 };
 
 // Best-effort throttling inside a single Node process.
@@ -49,14 +60,46 @@ function toHttpsUrl(value: string) {
   }
 }
 
+function isTurnstileConfigured() {
+  return Boolean(publicEnv.PUBLIC_TURNSTILE_SITE_KEY && (env.TURNSTILE_SECRET_KEY || dev));
+}
+
 function signFormToken(renderedAt: number) {
-  const secret = env.RESEND_API_KEY || (dev ? 'dev-contact-form' : '');
+  const secret = env.TURNSTILE_SECRET_KEY || env.RESEND_API_KEY || (dev ? 'dev-contact-form' : '');
 
   if (!secret) {
     return '';
   }
 
   return createHmac('sha256', secret).update(String(renderedAt)).digest('hex');
+}
+
+async function verifyTurnstileToken(token: string, clientIp: string, hostname: string) {
+  if (!env.TURNSTILE_SECRET_KEY) {
+    return dev;
+  }
+
+  const response = await fetch(TURNSTILE_VERIFY_URL, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      secret: env.TURNSTILE_SECRET_KEY,
+      response: token,
+      remoteip: clientIp,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Turnstile verification failed with status ${response.status}`);
+  }
+
+  const result = await response.json() as TurnstileVerificationResult;
+
+  return result.success
+    && (!result.action || result.action === TURNSTILE_ACTION)
+    && (!result.hostname || result.hostname === hostname);
 }
 
 function isValidFormToken(renderedAt: number, formToken: string) {
@@ -123,6 +166,7 @@ export const load: PageServerLoad = async () => {
   return {
     formToken: signFormToken(renderedAt),
     renderedAt,
+    turnstileSiteKey: isTurnstileConfigured() ? publicEnv.PUBLIC_TURNSTILE_SITE_KEY : '',
   };
 };
 
@@ -135,6 +179,7 @@ export const actions = {
     const deck = getTextEntry(data.get('deck'));
     const message = getTextEntry(data.get('message'));
     const formToken = getTextEntry(data.get('formToken'));
+    const turnstileToken = getTextEntry(data.get(TURNSTILE_FIELD));
     const honeypotValue = getTextEntry(data.get(HONEYPOT_FIELD));
     const renderedAt = Number.parseInt(getTextEntry(data.get('renderedAt')), 10);
     const origin = request.headers.get('origin');
@@ -165,10 +210,30 @@ export const actions = {
       return fail(400, { missing: true });
     }
 
+    if (!isTurnstileConfigured()) {
+      console.error('Turnstile is not configured for the contact form');
+      return fail(503, { captchaUnavailable: true });
+    }
+
     const clientIp = getClientIp(request, getClientAddress);
 
     if (isRateLimited(clientIp, now)) {
       return fail(429, { rateLimited: true });
+    }
+
+    if (!turnstileToken) {
+      return fail(400, { captcha: true });
+    }
+
+    try {
+      const isTurnstileValid = await verifyTurnstileToken(turnstileToken, clientIp, url.hostname);
+
+      if (!isTurnstileValid) {
+        return fail(400, { captcha: true });
+      }
+    } catch (error) {
+      console.error('Turnstile verification error:', error);
+      return fail(503, { captchaUnavailable: true });
     }
 
     const resend = new Resend(env.RESEND_API_KEY);

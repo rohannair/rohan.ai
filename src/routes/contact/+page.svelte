@@ -7,7 +7,21 @@
   export let form: ActionData;
 
   let loading = false;
+
+  function resetTurnstile() {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    (window as Window & { turnstile?: { reset: (widgetId?: string) => void } }).turnstile?.reset();
+  }
 </script>
+
+<svelte:head>
+  {#if data.turnstileSiteKey}
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {/if}
+</svelte:head>
 
 <SvelteSeo
   title="Contact - Fractional CTO Services | Rohan Nair"
@@ -36,7 +50,11 @@
     </p>
   </div>
 
-  {#if form?.success}
+  {#if !data.turnstileSiteKey}
+    <div class="rounded-lg border border-amber-500/20 bg-amber-500/5 p-6 text-sm text-amber-200/90">
+      The contact form is temporarily unavailable. Email <a class="underline underline-offset-4" href="mailto:rn@rohan.ai">rn@rohan.ai</a> directly.
+    </div>
+  {:else if form?.success}
     <div class="p-6 border border-green-500/15 bg-green-500/5 rounded-lg text-green-400">
       <h3 class="text-lg font-medium mb-2 font-headings">Message sent successfully</h3>
       <p class="text-sm text-green-400/80">Thanks for reaching out. I'll be in touch shortly.</p>
@@ -52,9 +70,13 @@
       method="POST"
       use:enhance={() => {
         loading = true;
-        return async ({ update }) => {
+        return async ({ result, update }) => {
           loading = false;
           await update();
+
+          if (result.type !== 'success') {
+            resetTurnstile();
+          }
         };
       }}
       class="space-y-7"
@@ -137,6 +159,15 @@
         ></textarea>
       </div>
 
+      <div class="pt-2">
+        <div
+          class="cf-turnstile"
+          data-sitekey={data.turnstileSiteKey}
+          data-theme="dark"
+          data-action="contact"
+        ></div>
+      </div>
+
       <div class="pt-4">
         <button
           type="submit"
@@ -157,6 +188,14 @@
 
       {#if form?.rateLimited}
         <p class="text-red-400 text-sm">Too many attempts from this network. Please wait a bit and try again.</p>
+      {/if}
+
+      {#if form?.captcha}
+        <p class="text-red-400 text-sm">Please complete the anti-spam check and try again.</p>
+      {/if}
+
+      {#if form?.captchaUnavailable}
+        <p class="text-red-400 text-sm">Spam protection is temporarily unavailable. Please try again in a minute.</p>
       {/if}
 
       {#if form?.error}
