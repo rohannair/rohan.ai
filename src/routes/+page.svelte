@@ -29,7 +29,7 @@
     and startup ecosystem, building and founding multiple startups.
   </p>
   <p>
-    Currently, I help investors and business owners cut through the AI hype to build products that actually work. I also selectively invest in and advise early-stage software companies.
+    I'm a founding partner at <a href="https://southwindlabs.io" target="_blank" rel="noopener noreferrer" class="text-gray-100 underline decoration-gray-600 underline-offset-4 hover:decoration-gray-300">Southwind Labs</a>, an AI studio. Through Southwind, I help investors and business owners cut through the AI hype to build products that actually work, and selectively invest in and advise early-stage software companies.
   </p>
 </div>
 
